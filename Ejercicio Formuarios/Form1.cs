@@ -52,12 +52,24 @@ namespace Ejercicio_Formuarios
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-          
+          foreach(DataGridViewRow row in DataGridAlumno.Rows)
+            {
+                string name = Convert.ToString(row.Cells["Name_search"].Value);
+                string apP = Convert.ToString(row.Cells["Ap_Paterno"].Value);
+                string apM = Convert.ToString(row.Cells["Ap_Materno"].Value);
+                if (SearchTextBox.Text == name || SearchTextBox.Text == apP || SearchTextBox.Text == apM)
+                {
+                    DataGridAlumno.Visible = true;
+                }
+                else
+                    DataGridAlumno.Visible = false;
+
+            }
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
-            int i;
+            
         }
 
         private void label1_Click_1(object sender, EventArgs e)
